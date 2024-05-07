@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.blogc.features.formscreen.FormScreen
+import com.example.blogc.features.formscreen.FormViewModel
 import com.example.blogc.ui.theme.BlogCTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   FormScreen()
+                   FormScreen(formViewModel = FormViewModel())
                 }
             }
         }
@@ -36,6 +37,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     BlogCTheme {
-       FormScreen()
+       FormScreen(formViewModel = FormViewModel())
     }
 }
