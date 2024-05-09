@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class FormViewModel( private val userId: Int?) : ViewModel() {
+class FormViewModel(  val userId: Int?) : ViewModel() {
 
     private val _userUiState = MutableStateFlow(UiState())
     val userUiState: StateFlow<UiState> = _userUiState.asStateFlow()
@@ -55,8 +55,9 @@ class FormViewModel( private val userId: Int?) : ViewModel() {
         viewModelScope.launch {
             try {
 
+
                     val user = User(
-                        id = -1, // because we don't have any id yet
+                        id = null, // because we don't have any id yet
                         name = userUiState.value.name,
                         lastname = userUiState.value.lastname,
                         email = userUiState.value.email,
@@ -66,10 +67,7 @@ class FormViewModel( private val userId: Int?) : ViewModel() {
                     val savedUser = RetrofitInstance.saveUser(user)
 
                     println("USER SAVED $savedUser")
-                    Log.e("saving user", "success")
-
-
-
+                    Log.e("savxing user", "success")
 
 
 
