@@ -1,7 +1,6 @@
 package com.example.blogc.features.formscreen
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.blogc.model.User
@@ -54,8 +53,6 @@ class FormViewModel(  val userId: Int?) : ViewModel() {
     fun saveUser() {
         viewModelScope.launch {
             try {
-
-
                     val user = User(
                         id = null, // because we don't have any id yet
                         name = userUiState.value.name,
@@ -67,7 +64,7 @@ class FormViewModel(  val userId: Int?) : ViewModel() {
                     val savedUser = RetrofitInstance.saveUser(user)
 
                     println("USER SAVED $savedUser")
-                    Log.e("savxing user", "success")
+                    Log.e("saving user", "success")
 
 
 
