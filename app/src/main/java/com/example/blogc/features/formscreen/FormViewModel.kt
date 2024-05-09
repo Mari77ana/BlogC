@@ -54,7 +54,7 @@ class FormViewModel( private val userId: Int?) : ViewModel() {
     fun saveUser() {
         viewModelScope.launch {
             try {
-                if (userId == null) {
+
                     val user = User(
                         id = -1, // because we don't have any id yet
                         name = userUiState.value.name,
@@ -68,10 +68,7 @@ class FormViewModel( private val userId: Int?) : ViewModel() {
                     println("USER SAVED $savedUser")
                     Log.e("saving user", "success")
 
-                }
-                else {
-                    println("UPDATE USER")
-                }
+
 
 
 
