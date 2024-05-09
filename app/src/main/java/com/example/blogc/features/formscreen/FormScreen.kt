@@ -39,7 +39,8 @@ fun FormScreen(formViewModel: FormViewModel) {
         onChangedName = {formViewModel.updateName(it)},
         onChangedLastname = {formViewModel.updateLastname(it)},
         onChangedEmail = {formViewModel.updateEmail(it)},
-        onChangedPassword = {formViewModel.updatePassword(it)}
+        onChangedPassword = {formViewModel.updatePassword(it)},
+        formViewModel = formViewModel
         )
 }
 
@@ -47,7 +48,8 @@ fun FormScreen(formViewModel: FormViewModel) {
 @Composable
 fun FormComponent(
     modifier: Modifier,
-    uiFormState: FormViewModel.UiState  ,
+    formViewModel: FormViewModel,
+    uiFormState: UiState,
     onChangedName: (String) -> Unit,
     onChangedLastname: (String) -> Unit,
     onChangedEmail: (String) -> Unit,
@@ -70,7 +72,7 @@ fun FormComponent(
         verticalArrangement = Arrangement.Center
     ) {
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier.padding(vertical = 4.dp),
             value = uiFormState.name,
             onValueChange = { onChangedName(it) },
@@ -78,7 +80,7 @@ fun FormComponent(
         )
 
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier.padding(vertical = 4.dp),
             value = uiFormState.lastname,
             onValueChange = { onChangedLastname(it) },
@@ -86,7 +88,7 @@ fun FormComponent(
         )
 
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier.padding(vertical = 4.dp),
             value = uiFormState.email,
             onValueChange = {onChangedEmail(it)},
@@ -94,7 +96,7 @@ fun FormComponent(
         )
 
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier.padding(vertical = 4.dp),
             value = uiFormState.password,
             onValueChange = { onChangedPassword(it) },
@@ -108,8 +110,11 @@ fun FormComponent(
             modifier = modifier
                 .width(280.dp)
                 .padding(top = 10.dp),
+
             onClick =
-            { /*TODO  Navigate to Profile*/ }
+            { /*TODO 1: Save User,  2: Navigate to Profile*/
+                formViewModel.saveUser()
+            }
         ) {
             Text(text = "Register")
         }
@@ -123,6 +128,6 @@ fun FormComponent(
 @Preview(showBackground = true)
 @Composable
 fun FormScreenPreview() {
-    FormScreen(formViewModel = FormViewModel())
+    FormScreen(formViewModel = FormViewModel(userId = 0))
 
 }

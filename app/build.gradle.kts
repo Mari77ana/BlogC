@@ -50,6 +50,15 @@ android {
 }
 
 dependencies {
+    // Material 3 , needed for Scaffold
+    implementation(libs.material3)
+    implementation("androidx.compose.material3:material3-window-size-class:1.2.1")
+    implementation(libs.androidx.material3.adaptive.navigation.suite)
+
+    // coroutines
+    implementation (libs.kotlinx.coroutines.android)
+
+
     // Retrofit
     implementation(libs.retrofit)
     implementation (libs.converter.gson)
