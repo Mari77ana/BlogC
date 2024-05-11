@@ -41,7 +41,7 @@ fun FormScreen(formViewModel: FormViewModel, navigateToProfile: () -> Unit) {
         onChangedEmail = {formViewModel.updateEmail(it)},
         onChangedPassword = {formViewModel.updatePassword(it)},
         formViewModel = formViewModel,
-        navigateToProfile = {}
+        navigateToProfile = navigateToProfile // could be ?
         )
 }
 

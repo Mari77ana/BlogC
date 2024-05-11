@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.blogc.features.formscreen.FormScreen
 import com.example.blogc.features.formscreen.FormViewModel
+import com.example.blogc.features.profilescreen.ProfileScreen
 
 @Composable // For showing screens
 fun Navigation() {
@@ -15,9 +16,12 @@ fun Navigation() {
         composable(route = Screen.FormScreen.route) {
             FormScreen(
                 formViewModel = FormViewModel(),
-                navigateToProfile = {}
+                navigateToProfile = { navController.navigate(Screen.ProfileScreen.route)}
             )
 
+        }
+        composable(route = Screen.ProfileScreen.route) {
+            ProfileScreen()
         }
 
     }

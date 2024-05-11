@@ -54,6 +54,7 @@ dependencies {
 
     // Navigation
     implementation(libs.androidx.navigation.compose)
+    implementation (libs.androidx.navigation.compose.v240alpha04)
 
 
     // Material 3 , needed for Scaffold
