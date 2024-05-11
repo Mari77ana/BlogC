@@ -16,7 +16,9 @@ fun Navigation() {
         composable(route = Screen.FormScreen.route) {
             FormScreen(
                 formViewModel = FormViewModel(),
-                navigateToProfile = { navController.navigate(Screen.ProfileScreen.route)}
+                navigateToProfile = {
+                    navController.navigate(Screen.ProfileScreen.route)
+                }
             )
 
         }
