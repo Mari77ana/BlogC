@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class FormViewModel(  val userId: Int?) : ViewModel() {
+class FormViewModel() : ViewModel() {
 
     private val _userUiState = MutableStateFlow(UiState())
     val userUiState: StateFlow<UiState> = _userUiState.asStateFlow()

@@ -24,7 +24,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   FormScreen(formViewModel = FormViewModel(userId = 0))
+                   FormScreen(
+                       formViewModel = FormViewModel(),
+                       navigateToProfile = {}
+                   )
                 }
             }
         }
@@ -37,6 +40,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     BlogCTheme {
-       FormScreen(formViewModel = FormViewModel(userId = 0))
+       FormScreen(
+           formViewModel = FormViewModel(),
+           navigateToProfile = {}
+       )
     }
 }

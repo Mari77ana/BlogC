@@ -30,7 +30,7 @@ import com.example.blogc.model.User
 
 
 @Composable
-fun FormScreen(formViewModel: FormViewModel) {
+fun FormScreen(formViewModel: FormViewModel, navigateToProfile: () -> Unit) {
 
    val uiState by formViewModel.userUiState.collectAsState()
     FormComponent(
@@ -40,7 +40,8 @@ fun FormScreen(formViewModel: FormViewModel) {
         onChangedLastname = {formViewModel.updateLastname(it)},
         onChangedEmail = {formViewModel.updateEmail(it)},
         onChangedPassword = {formViewModel.updatePassword(it)},
-        formViewModel = formViewModel
+        formViewModel = formViewModel,
+        navigateToProfile = {}
         )
 }
 
@@ -54,6 +55,7 @@ fun FormComponent(
     onChangedLastname: (String) -> Unit,
     onChangedEmail: (String) -> Unit,
     onChangedPassword: (String) -> Unit,
+    navigateToProfile: () -> Unit
 
     ) {
 
@@ -114,6 +116,8 @@ fun FormComponent(
             onClick =
             { /*TODO 1: Save User,  2: Navigate to Profile*/
                 formViewModel.saveUser()
+                navigateToProfile()
+                println("Button Register Tapped to navigate to ProfileScreen")
             }
         ) {
             Text(text = "Register")
@@ -128,6 +132,9 @@ fun FormComponent(
 @Preview(showBackground = true)
 @Composable
 fun FormScreenPreview() {
-    FormScreen(formViewModel = FormViewModel(userId = 0))
+    FormScreen(
+        formViewModel = FormViewModel(),
+        navigateToProfile = {}
+    )
 
 }
