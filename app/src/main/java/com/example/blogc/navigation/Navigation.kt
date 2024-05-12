@@ -23,7 +23,10 @@ fun Navigation() {
 
         }
         composable(route = Screen.ProfileScreen.route) {
-            ProfileScreen()
+            ProfileScreen(
+                navigateToUserListScreen = {},
+                navigateToBlogScreen = {}
+            )
         }
 
     }
