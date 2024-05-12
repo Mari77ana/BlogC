@@ -158,7 +158,7 @@ fun UserCard(
 
 }
 
-
+ /*
 @Preview
 @Composable
 fun CardPreview() {
@@ -175,6 +175,9 @@ fun CardPreview() {
     )
 }
 
+  */
+
+/*
 @Preview
 @Composable
 fun UserComponentPreview() {
@@ -192,6 +195,8 @@ fun UserComponentPreview() {
     )
 
 }
+
+ */
 
 
 @Preview
