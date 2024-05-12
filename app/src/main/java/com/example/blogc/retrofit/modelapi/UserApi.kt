@@ -14,7 +14,7 @@ interface UserApi {
     @POST("/users/save")
     suspend fun saveUser(@Body user: User): User
 
-    @GET("/users/{userId}")
+    @GET("/users/get/{userId}")
     suspend fun getUserById(@Path("userId") userId: Int): User
 
 }
