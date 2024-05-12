@@ -20,8 +20,11 @@ object RetrofitInstance {
 
     suspend fun saveUser( user: User) { userApi.saveUser(user) }
 
-    suspend fun getAllUsers() { userApi.getAllUsers()}
-    suspend fun getUserById(userId: Int) { userApi.getUserById(userId)}
+    suspend fun getAllUsers(): List<User> {
+        return userApi.getAllUsers()}
+    suspend fun getUserById(userId: Int): User {
+        return userApi.getUserById(userId)
+    }
 
 
 
