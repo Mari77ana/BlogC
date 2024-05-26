@@ -1,4 +1,4 @@
-package com.example.blogc.retrofit.modelapi
+package com.example.blogc.retrofit_api.modelapi
 
 import com.example.blogc.model.User
 import retrofit2.http.Body
@@ -18,3 +18,8 @@ interface UserApi {
     suspend fun getUserById(@Path("userId") userId: Int): User
 
 }
+
+
+
+
+// TODO create a new interface BlogApi in a new file in  modelApi package

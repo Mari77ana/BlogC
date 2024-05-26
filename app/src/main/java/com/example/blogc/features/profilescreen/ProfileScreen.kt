@@ -119,9 +119,9 @@ fun ProfileScreen(
                 tint = Color.Gray.copy(alpha = 0.5f),
                 modifier = Modifier.size(130.dp)
             )
-            Text(text = "Name: $name")
-            Text(text = "Lastname: $lastname")
-            Text(text = "email: $email")
+            Text(text = " $name")
+            Text(text = "$lastname")
+            Text(text = "$email")
 
         }
 

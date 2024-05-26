@@ -110,9 +110,9 @@ fun UserCard(
     OutlinedCard(
         colors = CardDefaults.cardColors(
             containerColor = //MaterialTheme.colorScheme.surface,
-            Color.LightGray
+            Color.White
         ),
-        border = BorderStroke(6.dp, Color.Gray),
+        border = BorderStroke(2.dp, Color.Black),
         modifier = Modifier.fillMaxWidth()  //lade till denna
         //.size(width = 240.dp, height = 118.dp)
 

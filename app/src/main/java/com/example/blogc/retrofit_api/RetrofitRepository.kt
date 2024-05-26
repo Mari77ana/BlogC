@@ -1,7 +1,7 @@
-package com.example.blogc.retrofit
+package com.example.blogc.retrofit_api
 
 import com.example.blogc.model.User
-import com.example.blogc.retrofit.modelapi.UserApi
+import com.example.blogc.retrofit_api.modelapi.UserApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -25,6 +25,9 @@ object RetrofitInstance {
     suspend fun getUserById(userId: Int): User {
         return userApi.getUserById(userId)
     }
+
+
+    // TODO add suspend functions for saveBlog, getBlogById
 
 
 
