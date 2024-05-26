@@ -54,7 +54,7 @@ class FormViewModel() : ViewModel() {
         viewModelScope.launch {
             try {
                     val user = User(
-                        id = null, // because we don't have any id yet
+                        id = null, // because we don't have any id yet,
                         name = userUiState.value.name,
                         lastname = userUiState.value.lastname,
                         email = userUiState.value.email,
@@ -84,6 +84,7 @@ class FormViewModel() : ViewModel() {
 
 
 data class UiState(
+    //val id: Int, // hade ingen id här
     val name: String = "",
     val lastname: String = "",
     val email: String = "",

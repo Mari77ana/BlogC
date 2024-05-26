@@ -30,7 +30,7 @@ import com.example.blogc.model.User
 
 
 @Composable
-fun FormScreen(formViewModel: FormViewModel, navigateToProfile: () -> Unit) {
+fun FormScreen(formViewModel: FormViewModel, navigateToProfile: (String, String, String) -> Unit) {
 
    val uiState by formViewModel.userUiState.collectAsState()
     FormComponent(
@@ -41,7 +41,7 @@ fun FormScreen(formViewModel: FormViewModel, navigateToProfile: () -> Unit) {
         onChangedEmail = {formViewModel.updateEmail(it)},
         onChangedPassword = {formViewModel.updatePassword(it)},
         formViewModel = formViewModel,
-        navigateToProfile = navigateToProfile // could be ?
+        navigateToProfile = navigateToProfile, // could be ?,
         )
 }
 
@@ -55,7 +55,7 @@ fun FormComponent(
     onChangedLastname: (String) -> Unit,
     onChangedEmail: (String) -> Unit,
     onChangedPassword: (String) -> Unit,
-    navigateToProfile: () -> Unit
+    navigateToProfile: (String, String, String) -> Unit,
 
     ) {
 
@@ -116,8 +116,9 @@ fun FormComponent(
             onClick =
             { /*TODO 1: Save User,  2: Navigate to Profile*/
                 formViewModel.saveUser()
-                navigateToProfile()
+                navigateToProfile(uiFormState.name, uiFormState.lastname, uiFormState.email)
                 println("Button Register Tapped to navigate to ProfileScreen")
+                println("Send Data To Profile ${uiFormState.name},${uiFormState.lastname}, ${uiFormState.email} ")
             }
         ) {
             Text(text = "Register")
@@ -134,7 +135,7 @@ fun FormComponent(
 fun FormScreenPreview() {
     FormScreen(
         formViewModel = FormViewModel(),
-        navigateToProfile = {}
+        navigateToProfile = { _, _, _  ->}
     )
 
 }

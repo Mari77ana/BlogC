@@ -48,7 +48,7 @@ fun GreetingPreview() {
     BlogCTheme {
        FormScreen(
            formViewModel = FormViewModel(),
-           navigateToProfile = {}
+           navigateToProfile = { _,_,_, -> }
        )
     }
 }

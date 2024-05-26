@@ -19,6 +19,8 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -28,32 +30,24 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.blogc.R
+import com.example.blogc.model.User
 import com.example.blogc.navigation.Screen
-
-
-@Composable
-fun ProfileScreen(navigateToUserListScreen: () -> Unit, navigateToBlogScreen: () -> Unit) {
-
-    ProfileComponent(
-        navigateToUserListScreen = navigateToUserListScreen,
-        navigateToBlogScreen = navigateToBlogScreen,
-    )
-        
-
-}
-
-
-
-
 
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ProfileComponent(
+fun ProfileScreen(
+    name: String?,
+    lastname: String?,
+    email: String?,
+     // test for receiving userId
     navigateToBlogScreen: () -> Unit,
-    navigateToUserListScreen: () -> Unit)
+    navigateToUserListScreen: () -> Unit,
+
+)
 {
+
     var expanded = remember { mutableStateOf(false) }
     Scaffold(
         topBar = {
@@ -74,13 +68,6 @@ fun ProfileComponent(
                       expanded = expanded
 
                   )
-                       
-
-
-
-
-
-
 
                     /*
                     DropdownMenu(
@@ -132,8 +119,9 @@ fun ProfileComponent(
                 tint = Color.Gray.copy(alpha = 0.5f),
                 modifier = Modifier.size(130.dp)
             )
-            Text(text = "Profile Screen")
-            Text(text = "Profile Screen")
+            Text(text = "Name: $name")
+            Text(text = "Lastname: $lastname")
+            Text(text = "email: $email")
 
         }
 
@@ -199,7 +187,14 @@ fun DropdownMenu(
 @Preview
 @Composable
 fun ProfileScreenPreview() {
-    ProfileComponent(
-        navigateToBlogScreen = {},
-        navigateToUserListScreen = {})
+    ProfileScreen(
+        name = "Natalie",
+        lastname = "Anderzen",
+        email = "Anderzen@gmail.com",
+        navigateToBlogScreen = { },
+        navigateToUserListScreen = {}
+    )
+
+
+
 }
