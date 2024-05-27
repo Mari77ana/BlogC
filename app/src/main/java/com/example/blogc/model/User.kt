@@ -7,4 +7,6 @@ data class User(
     val email: String,
     val password: String,
     val comment: String,
+
+    // TODO add val blogList: List<Blog> here
 )
