@@ -11,6 +11,7 @@ import com.example.blogc.features.blogscreen.BlogViewModel
 import com.example.blogc.features.formscreen.FormScreen
 import com.example.blogc.features.formscreen.FormViewModel
 import com.example.blogc.features.profilescreen.ProfileScreen
+import com.example.blogc.features.userlistscreen.UserListScreen
 
 @Composable // For showing screens
 fun Navigation() {
@@ -39,21 +40,27 @@ fun Navigation() {
                 backStackEntry.arguments?.getString("name"),
                 backStackEntry.arguments?.getString("lastname"),
                 backStackEntry.arguments?.getString("email"),
-                navigateToUserListScreen = {},
+                navigateToUserListScreen = {
+                    navController.navigate(Screen.UserListScreen.route)
+                },
                 navigateToBlogScreen = {
                     navController.navigate(Screen.BlogScreen.route)
                 }
             )
         }
 
-        composable(route = Screen.BlogScreen.route){
+        composable(route = Screen.BlogScreen.route) {
             BlogScreen(
                 blogViewModel = BlogViewModel(),
                 onTitleChanged = { /*TODO*/ },
                 onDescriptionChanged = { /*TODO*/ },
                 navigateToProfileScreen = { /*TODO*/ }) {
-                
+
             }
+        }
+
+        composable(route = Screen.UserListScreen.route) {
+            UserListScreen()
         }
 
 
