@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class BlogViewModel: ViewModel() {
 
     private val _uistate = MutableStateFlow(UiState())
-    val uiState: StateFlow<UiState> = _uistate.asStateFlow()
+    val blogUiState: StateFlow<UiState> = _uistate.asStateFlow()
 
     fun updateTitle(title: String) {
         _uistate.value = _uistate.value.copy(
