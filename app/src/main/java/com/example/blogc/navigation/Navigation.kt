@@ -12,6 +12,7 @@ import com.example.blogc.features.formscreen.FormScreen
 import com.example.blogc.features.formscreen.FormViewModel
 import com.example.blogc.features.profilescreen.ProfileScreen
 import com.example.blogc.features.userlistscreen.UserListScreen
+import com.example.blogc.features.userlistscreen.UserListViewModel
 
 @Composable // For showing screens
 fun Navigation() {
@@ -60,7 +61,7 @@ fun Navigation() {
         }
 
         composable(route = Screen.UserListScreen.route) {
-            UserListScreen()
+            UserListScreen(userListViewModel = UserListViewModel())
         }
 
 
