@@ -126,22 +126,22 @@ fun UserCard(
                 Icon(
                     Icons.Filled.Person,
                     contentDescription = "Icon",
-                    modifier.size(30.dp),
+                    modifier.size(45.dp),
                 )
 
                 Spacer(modifier = Modifier.height(2.dp))
 
                 Text(
                     text = user.name,
-                    fontSize = 10.sp
+                    fontSize = 20.sp
                 )
                 Text(
                     text = user.lastname,
-                    fontSize = 10.sp
+                    fontSize = 20.sp
                 )
                 Text(
                     text = user.email,
-                    fontSize = 10.sp
+                    fontSize = 20.sp
                 )
 
             }
@@ -154,7 +154,7 @@ fun UserCard(
 
 }
 
- /*
+
 @Preview
 @Composable
 fun CardPreview() {
@@ -171,7 +171,7 @@ fun CardPreview() {
     )
 }
 
-  */
+
 
 /*
 @Preview
