@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                    )
 
                      */
-                     
+
                     Navigation()
                 }
             }
